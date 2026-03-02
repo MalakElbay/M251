@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Insert TMA score: ");
+        int tma = input.nextInt();
+        System.out.print("Insert MTA score: ");
+        int mta = input.nextInt();
+        System.out.print("Insert final exam score: ");
+        int fin = input.nextInt();
+        int sum = tma+mta+fin;
+        if (sum>=90)
+            System.out.print("grade = A");
+        else if (sum>=80)
+            System.out.print("grade = B");
+        else if (sum>=70)
+            System.out.print("grade = C");
+        else if (sum>=60)
+            System.out.print("grade = D");
+        else
+            System.out.print("grade = F");
+    }
+}
