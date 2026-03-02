@@ -1,0 +1,11 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Insert a string: ");
+        String s = input.next();
+        StringBuilder sb = new StringBuilder(s.replaceAll("\\D",""));
+        int ans = Integer.parseInt(sb.reverse().toString())+5;
+        System.out.printf("The result is: %d", ans);
+    }
+}
