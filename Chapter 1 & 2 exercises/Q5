@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Insert a statement or more: ");
+        String s = input.nextLine();
+        String[] words = s.trim().split("\\W+");
+        int vowelSum = 0;
+        int ionSum = 0;
+         for (int i = 0 ; i<words.length ; i++){
+                if (words[i].charAt(0) == 'a' || words[i].charAt(0) == 'e' || words[i].charAt(0) == 'i' || words[i].charAt(0) == 'o' || words[i].charAt(0) == 'u')
+                    vowelSum++;
+
+                if (words[i].length()>=3 && words[i].endsWith("ion"))
+                    ionSum++;
+            }
+        System.out.printf("The number of words that start with a vowel is: %d%n", vowelSum);
+        System.out.printf("The number of words that end with \"ion\" is: %d", ionSum);
+    }
+}
