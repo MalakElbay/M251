@@ -1,0 +1,9 @@
+public class StudentTest{
+    public static void main(String[] args) {
+        Student student = new Student();
+        System.out.printf("Name: %s\n", student.name);
+        System.out.printf("Age: %d\n", student.age);
+        System.out.printf("Is science major: %b\n", student.isScienceMajor);
+        System.out.printf("Gender: %c\n",student.gender);
+    }
+}
