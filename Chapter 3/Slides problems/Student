@@ -1,0 +1,7 @@
+public class Student {
+    double radius = 1.0;
+    String name;
+    int age;
+    boolean isScienceMajor;
+    char gender;
+}
