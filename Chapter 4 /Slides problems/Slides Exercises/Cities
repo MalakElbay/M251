@@ -1,0 +1,20 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args){
+        ArrayList<String> cityList = new ArrayList<>();
+        cityList.add("London");
+        cityList.add("Denver");
+        cityList.add("Paris");
+        cityList.add("Miami");
+        cityList.add("Seoul");
+        cityList.add("Tokyo");
+        for(int i = 0 ; i<cityList.size() ; i++){
+            System.out.print(cityList.get(i)+" ");
+        }
+        System.out.print("\nThe size of the list is: " + cityList.size());
+        System.out.print("\nIs Miami in the list?: " + cityList.contains("Miami"));
+        System.out.print("\nThe location of Denver is: " + cityList.indexOf("Denver"));
+        cityList.add(4, "Paris");
+        cityList.remove("Paris");
+    }
+}
