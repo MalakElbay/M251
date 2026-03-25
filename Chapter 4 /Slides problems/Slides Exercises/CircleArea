@@ -1,0 +1,11 @@
+import java.util.*;
+public class CircleArea {
+    public static void main(String[] args){
+        ArrayList<Circle> circles = new ArrayList<>(2);
+        circles.add(new Circle(2));
+        circles.add(new Circle(4.3));
+        System.out.printf("Radius of the first circle is %.2f\n", circles.get(0).getRadius());
+        System.out.printf("Area of the first circle is %.2f", circles.get(0).getArea())
+
+    }
+}
