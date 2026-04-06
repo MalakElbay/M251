@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+public class Test {
+    public static void main(String[] args){
+        Circle c1 = new Circle();
+        Circle c2 = new Circle(3.4);
+        c2.setColor("Green");
+        c2.setFilled(true);
+        Rectangle r1 = new Rectangle();
+        Rectangle r2 = new Rectangle(5, 3);
+        r2.setColor("Purple");
+        r2.setFilled(true);
+        System.out.println(c1.toString());
+        System.out.println(c2.toString());
+        System.out.println(r1.toString());
+        System.out.println(r2.toString());
+        System.out.println("r1.equals(r2): " + r1.equals(r2));
+        System.out.println("r1.equals(r3): " + r1.equals(r2));
+        System.out.println("c1.equals(r1): " + c1.equals(r1));
+    }
+}
