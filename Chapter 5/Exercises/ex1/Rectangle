@@ -1,0 +1,45 @@
+public class Rectangle extends SimpleGeometricObject{
+    private double width, height = 1.0;
+    public Rectangle(){
+    }
+    public Rectangle(double w, double h){
+        this.width = w;
+        this.height = h;
+    }
+    public Rectangle(double w, double h, String color, boolean filled){
+        this.width = w;
+        this.height = h;
+        setColor(color);
+        setFilled(filled);
+    }
+    public double getWidth(){
+        return width;
+    }
+    public void setWidth(double width){
+        this.width = width;
+    }
+    public void setHeight(double height){
+        this.height = height;
+    }
+    public double getArea(){
+        return width*height;
+    }
+    public double getPerimeter(){
+        return 2 * (width + height);
+    }
+    @Override
+    public String toString(){
+        return "Created on " + getDate() +
+                "\nColor: " + getColor() +
+                "\nFilled: " + isFilled() +
+                "\nThe area of the rectangle is: " + getArea();
+    }
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Rectangle){
+            Rectangle r = (Rectangle) o;
+            return (width == r.width) && (height == r.height);
+        }
+        return false;
+    }
+}
