@@ -1,0 +1,27 @@
+import java.util.*;
+public class TestMachine {
+    public static void main(String[] args){
+        Machine m1 = new Machine(false, "Dell");
+        Machine m2 = new Machine();
+        m2.brandName = "Sharp";
+        m1.display();
+        m2.display();
+        Machine[] array = new Machine[3];
+        array[0] = m1;
+        array[1] = m2;
+        array[2] = new Machine(true, "Dell");
+        int countDell = 0;
+        for (int i = 0 ; i<3 ; i++)
+            if(array[i].brandName.equals("Dell"))
+                countDell++;
+        System.out.printf("There are %d machines of brand \"Dell\"\n", countDell);
+        ArrayList<Machine> machines = new ArrayList(Arrays.asList(array));
+        machines.add(new Machine(true, "Lenovo"));
+        machines.add(new Machine(true,"HP"));
+        int countOn = 0;
+        for (int i = 0 ; i<machines.size() ; i++)
+            if(machines.get(i).power == true)
+                countOn++;
+        System.out.printf("There are %d machines that are turned on", countOn);
+    }
+}
