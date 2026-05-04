@@ -1,0 +1,52 @@
+import java.util.*;
+import java.io.*;
+public class Deal_Rectangles {
+    public static void fillRectangles(ArrayList<Rectangle> list){
+        Rectangle r1 = new Rectangle(3,5, "Purple");
+        Rectangle r2 = new Rectangle(5,4, "Red");
+        Rectangle r3 =  new Rectangle(2,3, "Yellow");
+        list.add(r1);
+        list.add(r2);
+        list.add(r3);
+    }
+    public static void writeToFile(ArrayList<Rectangle> list){
+        try{
+            File f = new File("C:/Users/...../Rectangles.txt"); //<- add ur file path here
+            PrintWriter pr = new PrintWriter(f);
+            for(Rectangle r : list){
+                pr.printf("%.2f %.2f %s", r.getHeight(), r.getWidth(), r.getColor());
+                pr.close();
+            }
+        }
+        catch(FileNotFoundException e){
+            System.out.print("Error: " + e);
+        }
+    }
+
+    public static ArrayList<Rectangle> readFromFile(){
+        ArrayList<Rectangle> list = new ArrayList<Rectangle>();
+        try{
+            File f = new File("C:/Users/....../Rectangles.txt"); //<-add ur file path here
+            Scanner input = new Scanner(f);
+            double width, height;
+            String color;
+            while(input.hasNext()){
+                width = input.nextDouble();
+                height = input.nextDouble();
+                color = input.next();
+                list.add(new Rectangle(width, height, color));
+            }
+            input.close();
+        }
+        catch(Exception e){
+            System.out.print("Error: "+e);
+        }
+        return list;
+    }
+    public static void printArea(ArrayList<Rectangle> list){
+        for(Rectangle r : list)
+            System.out.printf("Area of rectangle %d is %.2f", list.indexOf(r), r.getArea());
+    }
+
+
+}
