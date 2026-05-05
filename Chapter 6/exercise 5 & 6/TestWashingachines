@@ -1,0 +1,18 @@
+import java.util.*;
+public class TestWashingMachines {
+    public static void main(String[] args){
+        WashingMachine wm = new WashingMachine(true, "Samsung", new Date(1,1,2001), 10);
+        System.out.println("The status of the washing machine named \"wm\": \n" + wm.toString());
+        ArrayList<WashingMachine> list = new ArrayList<WashingMachine>(4);
+        list.add(wm);
+        list.add(new WashingMachine(false, "Toshiba", new Date(2,2,2002), 20));
+        list.add(new WashingMachine(false, "Kia", new Date(3,3,2003), 30));
+        list.add(new WashingMachine(false, "Lenovo", new Date(4,4,2004), 40));
+        if(list.contains(wm))
+            System.out.println("The washing machine named \"wm\" exists in the list");
+        Collections.sort(list);
+        for(int i = 0 ; i<list.size() ; i++){
+            System.out.print("The status of washing machine "+ (i+1) + ":\n" + list.get(i).toString() + "\n");
+        }
+    }
+}
