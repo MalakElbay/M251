@@ -1,0 +1,42 @@
+//Made by Malak
+public class Student extends Person{
+    private int studentID;
+    private double studentGPA;
+
+    public Student(int studentID, String studentName, char studentGender, String studentTrack, double studentGPA){
+        this.studentID = studentID;
+        setName(studentName);
+        setGender(studentGender);
+        setSpecialty(studentTrack);
+        this.studentGPA = studentGPA;
+    }
+
+    public int getStudentID(){
+        return studentID;
+    }
+    /* public void setStudentID(int studentID){
+        this.studentID = studentID;
+    } */
+
+
+    public double getStudentGPA(){
+        return studentGPA;
+    }
+    public void setStudentGPA(double studentGPA){
+        this.studentGPA = studentGPA;
+    }
+
+    @Override
+    public String toString(){
+        return "Student ID: " + studentID + " ,  Student name: " + getName() +" ,  Student gender: " + getGender() +" ,  Student track: " + getSpecialty() + " ,  Student GPA: " + studentGPA;
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Student){
+            Student st = (Student)o;
+            return studentID==st.studentID;
+        }
+        return false;
+    }
+}
