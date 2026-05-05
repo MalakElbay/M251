@@ -1,4 +1,4 @@
-//Made by Malak Elbay 250021, Section 202
+//Made by Malak
 import java.util.*;
 public class Section {
     private  int sectionNumber;
