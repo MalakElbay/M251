@@ -1,4 +1,4 @@
-//Made by Malak Elbay 250021, Section 202
+//Made by Malak
 public class Person {
     private char gender;
     private String name;
