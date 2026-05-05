@@ -1,0 +1,120 @@
+//Made by Malak Elbay 250021, Section 202
+import java.util.*;
+public class Section {
+    private  int sectionNumber;
+    private String sectionDay;
+    private String sectionTime;
+    private Tutor sectionTutor;
+    private Room sectionRoom;
+    private Course sectionCourse;
+    private static final int limit = 40;
+    private ArrayList<Student> students;
+
+    public Section(int sectionNumber, String sectionDay, String sectionTime, Tutor sectionTutor, Room sectionRoom, Course sectionCourse){
+        this.sectionNumber = sectionNumber;
+        this.sectionDay = sectionDay;
+        this.sectionTime = sectionTime;
+        this.sectionTutor = sectionTutor;
+        this.sectionRoom = sectionRoom;
+        this.sectionCourse = sectionCourse;
+        this.students = new ArrayList<Student>();
+
+    }
+
+
+
+    public int getSectionNumber(){
+        return sectionNumber;
+    }
+    public void setSectionNumber(int sectionNumber){
+        this.sectionNumber = sectionNumber;
+    }
+
+    public String getSectionDay(){
+        return sectionDay;
+    }
+    public void setSectionDay(String sectionDay){
+        this.sectionDay = sectionDay;
+    }
+
+    public String getSectionTime(){
+        return sectionTime;
+    }
+    public void setSectionTime(String sectionTime){
+        this.sectionTime = sectionTime;
+    }
+
+    public Tutor getSectionTutor(){
+        return sectionTutor;
+    }
+    public void setSectionTutor(Tutor sectionTutor){
+        this.sectionTutor = sectionTutor;
+    }
+
+    public Room getSectionRoom(){
+        return sectionRoom;
+    }
+    public void setSectionRoom(Room sectionRoom){
+        this.sectionRoom = sectionRoom;
+    }
+
+    public Course getSectionCourse(){
+        return sectionCourse;
+    }
+    public void setSectionCourse(Course sectionCourse){
+        this.sectionCourse = sectionCourse;
+    }
+
+    public void addStudent(Student s){
+            if (students.size() == limit )
+                System.out.print("Error: The section " + getSectionNumber()+ " is full\n");
+            else if (students.contains(s))
+                System.out.print("Error: Student with the student ID " + s.getStudentID() + " you're trying to add is already registered the students' list of section " + this.sectionNumber + "\n");
+            else {
+                students.add(s);
+                System.out.print("Student with the student ID " + s.getStudentID() + " added to the list of the section " + this.sectionNumber + " successfully\n");
+            }
+    }
+
+    public void removeStudent(Student s){
+            if (students.isEmpty())
+                System.out.print("Error: The section doesn't have any students registered");
+            else {
+                if (!students.contains(s))
+                    System.out.print("Error: The student with the student ID " + s.getStudentID() + " you're trying to remove is not in the students' list of section " + sectionNumber + "\n");
+                else {
+                    students.remove(s);
+                    System.out.print("Student removed successfully from section " + sectionNumber + "\n");
+                }
+            }
+    }
+
+    public int getNumberOfStudents(){
+        return students.size();
+    }
+
+    private String getStudentsIDs(){
+        String IDs = "";
+        for (int i = 0 ; i <students.size(); i++){
+            IDs += students.get(i).getStudentID() + " ";
+        }
+        return IDs;
+    }
+
+    @Override
+    public String toString(){
+
+        return "Section number: " + sectionNumber + " ,  Course code: " + sectionCourse.getCourseCode() + " ,  Tutor name: " + sectionTutor.getName() + " ,  Room number: " + sectionRoom.getRoomNumber() + " ,  Day: " + sectionDay + " ,  Time: " + sectionTime
+                + "\nStudents' IDs: " + getStudentsIDs();
+
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Section){
+            Section s = (Section)o;
+            return sectionNumber == s.sectionNumber && sectionCourse.equals(s.sectionCourse);
+        }
+        return false;
+    }
+}
