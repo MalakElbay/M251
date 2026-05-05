@@ -1,0 +1,87 @@
+//Made by Malak
+import java.util.*;
+public class Register {
+    private String year;
+    private String semester;
+    private ArrayList<Section> listOfSections;
+
+    public Register(String year, String semester){
+        this.year = year;
+        this.semester = semester;
+        this.listOfSections = new ArrayList<Section>();
+    }
+
+    public String getYear(){
+        return year;
+    }
+    public void setYear(String year){
+        this.year = year;
+    }
+
+    public String getSemester(){
+        return semester;
+    }
+    public void setSemester(String semester){
+        this.semester = semester;
+    }
+
+    public void offerSection(Section s){
+        if (!listOfSections.contains(s)) {
+            listOfSections.add(s);
+            System.out.println("Section " + s.getSectionNumber() + " registered successfully");
+        }
+        else{
+            System.out.println("Error: The section with the number " + s.getSectionNumber() + " and course code " + s.getSectionCourse().getCourseCode() + " is already registered in this semester");
+        }
+    }
+
+    public void addStudentToSection(Student st, Section s){
+             s.addStudent(st);
+    }
+    public void removeStudentFromSection(Student st, Section s){
+        s.removeStudent(st);
+    }
+
+    public int getSectionsInRoom(int roomNumber){
+        int sum = 0;
+        for (int i = 0 ; i < listOfSections.size() ; i++){
+            if (listOfSections.get(i).getSectionRoom().getRoomNumber() == roomNumber) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+    public void printSectionsInRoom(int roomNumber){
+        System.out.println("The room " + roomNumber + " has maximum number of sections containing " + getSectionsInRoom(roomNumber) + " sections");
+    }
+
+    public void printMaxStudentsSection(String courseCode){
+        Section max = null;
+        for (int i = 0 ; i<listOfSections.size(); i++){
+            if (listOfSections.get(i).getSectionCourse().getCourseCode().equals(courseCode)){
+                if(max == null || listOfSections.get(i).getNumberOfStudents() > max.getNumberOfStudents())
+                    max = listOfSections.get(i);
+            }
+        }
+        if (max == null){
+            System.out.println("Error: there are no sections found for registration");
+        }
+        else
+            System.out.println("The data of the section with the maximum number of students is:\n" +max.toString());
+    }
+
+    public ArrayList<Tutor> getTutorInRoomList(int roomNumber){
+        ArrayList<Tutor> tutors = new ArrayList<Tutor>();
+        for (int i = 0 ; i < listOfSections.size() ; i++){
+            if (listOfSections.get(i).getSectionRoom().getRoomNumber() == roomNumber)
+                    if (!tutors.contains(listOfSections.get(i).getSectionTutor()))
+                         tutors.add(listOfSections.get(i).getSectionTutor());
+        }
+        return tutors;
+    }
+
+
+
+
+
+}
