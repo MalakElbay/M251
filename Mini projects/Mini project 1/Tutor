@@ -1,0 +1,35 @@
+//Made by Malak
+public class Tutor extends Person{
+    private String tutorCivilID;
+
+    public Tutor(String tutorCivilID, String tutorName, String tutorProfession, char tutorGender){
+        this.tutorCivilID = tutorCivilID;
+        setName(tutorName);
+        setSpecialty(tutorProfession);
+        setGender(tutorGender);
+    }
+
+    public String getTutorCivilID(){
+        return tutorCivilID;
+    }
+
+    /* public void setTutorCivilID(long tutorCivilID){
+        this.tutorCivilID = tutorCivilID;
+    } */
+
+
+
+    @Override
+    public String toString(){
+        return "Tutor civil ID: " + tutorCivilID + " ,  Tutor name: " + getName() + " ,  Tutor profession: " + getSpecialty() + " ,  Tutor Gender: " + getGender();
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (o instanceof Tutor){
+            Tutor t = (Tutor)o;
+            return tutorCivilID==t.tutorCivilID;
+        }
+        return false;
+    }
+}
