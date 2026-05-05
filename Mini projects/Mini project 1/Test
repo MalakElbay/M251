@@ -1,0 +1,77 @@
+//Made by Malak Elbay
+import java.util.*;
+public class Test {
+    public static void main(String[] Malak) {
+        Register r = new Register("25/26", "Spring");
+        Course M251 = new Course("M251", "Object-Oriented Programming using Java", 8);
+        Course TM103 = new Course("TM103", "Computer Organization and Architecture", 4);
+        Course MT131 = new Course("MT131", "Discrete Mathematics", 4);
+        Course TM105 = new Course("TM105", "Introduction to Programming", 4);
+
+        Tutor ghaze = new Tutor("251251251251", "Dr. Amal Ghaze", "Information Technology", 'F');
+        Tutor sayed = new Tutor("131131131131", "Dr. Amal Al Sayed", "Information Technology", 'F');
+        Tutor naji = new Tutor("105105105105", "Dr. Amal Naji", "Information Technology", 'F');
+
+        Room FW109 = new Room(109, 30, true);
+        Room FE104 = new Room(104, 40, false);
+        Room FE103 = new Room(103, 40, false);
+        Room FW112 = new Room(112, 30, true);
+
+        Section s1 = new Section(202, "Sunday", "17:00", ghaze, FW109, M251);
+        Section s2 = new Section(203, "Saturday", "13:00", ghaze, FE103, TM103);
+        Section s3 = new Section(201, "Saturday", "13:00", sayed, FE104, MT131);
+        Section s4 = new Section(204, "Saturday", "13:00", naji, FW112, TM105);
+        Section s5 = new Section(101, "Wednesday", "9:00", naji, FW109, M251);
+        Section s6 = new Section(102, "Tuesday", "17:00", ghaze, FE103, TM105);
+        Section s7 = new Section(104, "Thursday", "15:00", sayed, FE103, MT131);
+
+        r.offerSection(s1);
+        r.offerSection(s2);
+        r.offerSection(s3);
+        r.offerSection(s4);
+        r.offerSection(s5);
+        r.offerSection(s6);
+        r.offerSection(s7);
+        r.offerSection(s7); //<-should cause an error, because I can't register the same section twice in the same semester
+
+        Student st1 = new Student(808080, "Malak Elbay", 'F', "Information Technology", 4.0);
+        Student st2 = new Student(303030, "Norhan Ahmed", 'F', "Information Technology", 3.86);
+        Student st3 = new Student(200000, "Ahmed Ahmed", 'M', "Information Technology", 3.7);
+        Student st4 = new Student(100000, "Mohammed Mohammed",'M', "Information Technology", 2.7);
+        Student st5 = new Student(900000, "Bob Bobert", 'M', "Information Technology", 1.7);
+        Student st6 = new Student(800000, "Alice Allison", 'F', "Information Technology", 3.9 );
+
+        r.addStudentToSection(st1, s1);
+        r.addStudentToSection(st1, s2);
+        r.addStudentToSection(st1, s3);
+        r.addStudentToSection(st1, s4);
+        r.addStudentToSection(st2, s1);
+        r.addStudentToSection(st2, s1); //<-should cause an error, because I'm adding a student to the same section again
+        r.addStudentToSection(st2, s2);
+        r.addStudentToSection(st2, s3);
+        r.addStudentToSection(st3, s1);
+        r.addStudentToSection(st3, s4);
+        r.addStudentToSection(st4, s1);
+        r.addStudentToSection(st4, s4);
+        r.addStudentToSection(st5, s3);
+        r.addStudentToSection(st6, s2);
+        r.addStudentToSection(st6, s3);
+        r.removeStudentFromSection(st4, s3); //<- should cause another error, because I can't remove a student from a list if the student doesn't exist in it
+
+        r.printSectionsInRoom(103);
+        r.printMaxStudentsSection("M251");
+
+        System.out.print("The tutors teaching in FE103: \n");
+        ArrayList<Tutor> ts103 = r.getTutorInRoomList(103);
+        for (int i = 0; i<ts103.size() ; i++){
+            System.out.print(ts103.get(i) + "\n");
+        }
+
+        System.out.println(st1.toString());
+        System.out.println(naji.toString());
+        System.out.println(FW112.toString());
+        System.out.print(M251.toString());
+
+
+    }
+}
