@@ -1,0 +1,15 @@
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Set<String> herbs = new HashSet<String>();
+        herbs.add("Rosemary");
+        herbs.add("Parsely");
+        herbs.add("Camomile");
+        herbs.add("Rosemary");
+        System.out.println("The size of the set: "+ herbs.size());
+        for(String s : herbs){
+            System.out.print(s + " ");
+        
+    }
+}
