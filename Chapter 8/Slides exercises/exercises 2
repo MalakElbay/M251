@@ -1,0 +1,47 @@
+import java.util.Scanner;
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Integer[] i1 = {3,4,5,2,1};
+        Integer[] i2 = {2,3,7,8,9};
+        Set<Integer> s1 = new LinkedHashSet<>(Arrays.asList(i1));
+        Set<Integer> s2 = new LinkedHashSet<>(Arrays.asList(i2));
+
+        System.out.print("First set in order: ");
+        for(Integer i : s1){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        System.out.print("Second set in order: ");
+        for(Integer i : s2){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        Set<Integer> union = new LinkedHashSet<>(s1);
+        Set<Integer> intersection = new LinkedHashSet<>(s1);
+        Set<Integer> difference = new LinkedHashSet<>(s1);
+
+        union.addAll(s2);
+        System.out.print("The union of the first set and the second set: ");
+        for(Integer i : union){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        intersection.retainAll(s2);
+        System.out.print("The Intersection of the first set and the second set: ");
+        for(Integer i : intersection){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+
+        difference.removeAll(s2);
+        System.out.print("The difference of the first set and the second set: ");
+        for(Integer i : difference){
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
